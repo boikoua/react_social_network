@@ -1,53 +1,19 @@
 import React from 'react';
 import style from './App.module.scss';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+
+import linksFromData from './data/links';
+import Content from './components/Content/Content';
 
 const App = () => {
   return (
     <div className={style.app}>
-      <header className={style.header}>
-        <p className={style.logo}>Social Network</p>
-      </header>
-
+      <Header />
       <main className={style.main}>
-        <nav className={style.nav}>
-          <ul className={style.items}>
-            <li className={style.item}>
-              <a href="https://google.com" className={style.link}>
-                Profile
-              </a>
-            </li>
-            <li className={style.item}>
-              <a href="https://google.com" className={style.link}>
-                Messages
-              </a>
-            </li>
-            <li className={style.item}>
-              <a href="https://google.com" className={style.link}>
-                News
-              </a>
-            </li>
-            <li className={style.item}>
-              <a href="https://google.com" className={style.link}>
-                Music
-              </a>
-            </li>
-            <li className={style.item}>
-              <a href="https://google.com" className={style.link}>
-                Settings
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <Navbar links={linksFromData} />
 
-        <section className={style.content}>
-          <div className={style.bg}></div>
-
-          <div>Ava + Description</div>
-          <div>My posts</div>
-          <div>New post</div>
-          <div>Post 1</div>
-          <div>Post 2</div>
-        </section>
+        <Content />
       </main>
     </div>
   );

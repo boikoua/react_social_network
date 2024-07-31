@@ -1,0 +1,10 @@
+.logo {
+  font-size: 32px;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(190, 190, 190);
+  }
+}
