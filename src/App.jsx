@@ -7,38 +7,47 @@ const App = () => {
       <header className={style.header}>
         <p className={style.logo}>Social Network</p>
       </header>
-      <main className="main">
-        <nav className="nav">
-          <ul className="nav__items">
-            <li className="nav__item">
-              <a href="#" className="nav__link">
+
+      <main className={style.main}>
+        <nav className={style.nav}>
+          <ul className={style.items}>
+            <li className={style.item}>
+              <a href="https://google.com" className={style.link}>
                 Profile
               </a>
             </li>
-            <li className="nav__item">
-              <a href="#" className="nav__link">
+            <li className={style.item}>
+              <a href="https://google.com" className={style.link}>
                 Messages
               </a>
             </li>
-            <li className="nav__item">
-              <a href="#" className="nav__link">
+            <li className={style.item}>
+              <a href="https://google.com" className={style.link}>
                 News
               </a>
             </li>
-            <li className="nav__item">
-              <a href="#" className="nav__link">
+            <li className={style.item}>
+              <a href="https://google.com" className={style.link}>
                 Music
               </a>
             </li>
-            <li className="nav__item">
-              <a href="#" className="nav__link">
+            <li className={style.item}>
+              <a href="https://google.com" className={style.link}>
                 Settings
               </a>
             </li>
           </ul>
         </nav>
 
-        <section className="content">Main Content</section>
+        <section className={style.content}>
+          <div className={style.bg}></div>
+
+          <div>Ava + Description</div>
+          <div>My posts</div>
+          <div>New post</div>
+          <div>Post 1</div>
+          <div>Post 2</div>
+        </section>
       </main>
     </div>
   );
