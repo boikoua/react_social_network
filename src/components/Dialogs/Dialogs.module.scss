@@ -15,5 +15,62 @@
 .content {
   width: 100%;
   padding: 20px;
-  border: 2px solid blue;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  display: flex;
+  border: 2px solid red;
+  border-radius: 20px;
+  border: 1px solid rgb(199, 199, 199);
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 10px;
+  width: 200px;
+  border-right: 2px solid rgb(154, 154, 154);
+  background-color: #f4f1f1;
+  border-radius: 20px 0 0 20px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+  }
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  width: 100%;
+}
+
+.message {
+  padding: 20px;
+  width: 300px;
+  font-size: 20px;
+  font-style: italic;
+  border-radius: 20px 20px 20px 0;
+  border: 2px solid rgb(161, 161, 161);
+  box-shadow: 0px 0px 6px 0px rgba(122, 116, 116, 0.75);
+  background-color: #f4f1f1;
 }
