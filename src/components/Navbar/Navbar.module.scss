@@ -15,13 +15,15 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
 
   &:nth-child(4) {
     margin-bottom: 100px;
   }
 
   &:hover {
-    border-bottom: 1px solid rgb(117, 116, 116);
+    opacity: 0.6;
   }
 }
 
@@ -34,9 +36,5 @@
   font-size: 24px;
   text-decoration: none;
   color: #4f4d4d;
-  transition: all 0.3s ease-in;
-
-  &:hover {
-    color: rgb(117, 116, 116);
-  }
+  transition: all 0.2s ease-in;
 }
