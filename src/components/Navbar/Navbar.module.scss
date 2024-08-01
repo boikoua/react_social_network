@@ -33,8 +33,22 @@
 }
 
 .link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-size: 24px;
   text-decoration: none;
   color: #4f4d4d;
   transition: all 0.2s ease-in;
+}
+
+.active {
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #4f4d4d;
+  }
 }
