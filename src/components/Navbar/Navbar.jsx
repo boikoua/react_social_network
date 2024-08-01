@@ -8,7 +8,7 @@ const Navbar = ({ links }) => (
       {links.map((link) => (
         <li className={style.item} key={link.id}>
           <img src={link.icon} alt="icon" className={style.icon} />
-          <a href={link.url} className={style.link}>
+          <a href={`/${link.text.toLowerCase()}`} className={style.link}>
             {link.text}
           </a>
         </li>
