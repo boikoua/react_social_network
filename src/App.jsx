@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 
 import linksFromData from './data/links';
-import Content from './components/Content/Content';
+import Profile from './components/Profile/Profile';
 
 const App = () => {
   return (
@@ -13,7 +13,7 @@ const App = () => {
       <main className={style.main}>
         <Navbar links={linksFromData} />
 
-        <Content />
+        <Profile />
       </main>
     </div>
   );

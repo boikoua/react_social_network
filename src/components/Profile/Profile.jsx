@@ -1,8 +1,8 @@
 import React from 'react';
-import style from './Content.module.scss';
+import style from './Profile.module.scss';
 
-const Content = () => (
-  <section className={style.content}>
+const Profile = () => (
+  <section className={style.profile}>
     <div className={style.bg}></div>
 
     <div>Ava + Description</div>
@@ -13,4 +13,4 @@ const Content = () => (
   </section>
 );
 
-export default Content;
+export default Profile;

@@ -7,7 +7,7 @@ const Navbar = ({ links }) => (
       {/* Нужно еще добавить иконки */}
       {links.map((link) => (
         <li className={style.item} key={link.id}>
-          <span className={style.icon}></span>
+          <img src={link.url} alt="icon" className={style.icon} />
           <a href={link.url} className={style.link}>
             {link.text}
           </a>
