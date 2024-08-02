@@ -9,28 +9,20 @@ import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
 
-import linksFromData from './data/links';
-import postsFromData from './data/posts';
-import usersFromData from './data/users';
-import messagesFromData from './data/messages';
-
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className={style.app}>
         <Header />
         <main className={style.main}>
-          <Navbar links={linksFromData} />
+          <Navbar links={props.links} />
 
           <Routes>
-            <Route
-              path="/profile"
-              element={<Profile posts={postsFromData} />}
-            />
+            <Route path="/profile" element={<Profile posts={props.posts} />} />
             <Route
               path="/messages/*"
               element={
-                <Dialogs users={usersFromData} messages={messagesFromData} />
+                <Dialogs users={props.users} messages={props.messages} />
               }
             />
             <Route path="/news" element={<News />} />
