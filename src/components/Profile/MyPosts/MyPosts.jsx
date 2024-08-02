@@ -8,7 +8,12 @@ const MyPosts = (props) => (
     <p>NEW POST COMPONENT</p>
     <section className={style.posts}>
       {props.posts.map((post) => (
-        <Post avatar={post.avatar} message={post.message} likes={post.likes} />
+        <Post
+          avatar={post.avatar}
+          message={post.message}
+          likes={post.likes}
+          key={post.id}
+        />
       ))}
     </section>
   </section>

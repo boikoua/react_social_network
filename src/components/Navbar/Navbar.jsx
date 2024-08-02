@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 const Navbar = ({ links }) => (
   <nav className={style.nav}>
     <ul className={style.items}>
-      {/* Вывод ссылок из массива данных */}
       {links.map((link) => (
         <li className={style.item} key={link.id}>
           <img src={link.icon} alt="icon" className={style.icon} />

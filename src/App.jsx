@@ -25,7 +25,7 @@ const App = () => {
               path="/profile"
               element={<Profile posts={postsFromData} />}
             />
-            <Route path="/messages" element={<Dialogs />} />
+            <Route path="/messages/*" element={<Dialogs />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
