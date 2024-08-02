@@ -1,0 +1,50 @@
+.user {
+  position: relative;
+
+  display: flex;
+  gap: 10px;
+
+  &::before {
+    position: absolute;
+    bottom: 2px;
+    left: 45px;
+
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: green;
+  }
+}
+
+.avatar {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  text-decoration: none;
+  color: #4f4d4d;
+
+  &:hover {
+    color: #4f4d4d73;
+  }
+}
+
+.active {
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: blueviolet;
+  }
+}

@@ -1,88 +1,38 @@
 import React from 'react';
 import style from './Dialogs.module.scss';
-import { NavLink } from 'react-router-dom';
+import DialogsUser from './DialogsUser/DialogsUser';
+import DialogsMessage from './DialogsMessage/DialogsMessage';
 
-const Dialogs = (props) => (
-  <section className={style.dialogs}>
-    <div className={style.bg}></div>
-    <div className={style.content}>
-      <h2 className={style.title}>Dialogs</h2>
+const Dialogs = (props) => {
+  // Отображаем юзеров с помощью МАР
+  const userItems = props.users.map((user) => (
+    <DialogsUser
+      avatar={user.avatar}
+      id={user.id}
+      name={user.name}
+      key={user.id}
+    />
+  ));
 
-      <section className={style.wrapper}>
-        <section className={style.users}>
-          <article className={style.user}>
-            <NavLink
-              to="/messages/1"
-              className={({ isActive }) =>
-                isActive ? `${style.link} ${style.active}` : style.link
-              }
-            >
-              Dima
-            </NavLink>
-          </article>
-          <article className={style.user}>
-            <NavLink
-              to="/messages/2"
-              className={({ isActive }) =>
-                isActive ? `${style.link} ${style.active}` : style.link
-              }
-            >
-              Valera
-            </NavLink>
-          </article>
-          <article className={style.user}>
-            <NavLink
-              to="/messages/3"
-              className={({ isActive }) =>
-                isActive ? `${style.link} ${style.active}` : style.link
-              }
-            >
-              Sveta
-            </NavLink>
-          </article>
-          <article className={style.user}>
-            <NavLink
-              to="/messages/4"
-              className={({ isActive }) =>
-                isActive ? `${style.link} ${style.active}` : style.link
-              }
-            >
-              Vladimir
-            </NavLink>
-          </article>
-          <article className={style.user}>
-            <NavLink
-              to="/messages/5"
-              className={({ isActive }) =>
-                isActive ? `${style.link} ${style.active}` : style.link
-              }
-            >
-              Nastya
-            </NavLink>
-          </article>
-          <article className={style.user}>
-            <NavLink
-              to="/messages/6"
-              className={({ isActive }) =>
-                isActive ? `${style.link} ${style.active}` : style.link
-              }
-            >
-              Nataly
-            </NavLink>
-          </article>
+  // Отображаем сообщения с помощью МАР
+  const messageItems = props.messages.map((message) => (
+    <DialogsMessage message={message.text} key={message.id} />
+  ));
+
+  return (
+    <section className={style.dialogs}>
+      <div className={style.bg}></div>
+      <div className={style.content}>
+        <h2 className={style.title}>Dialogs</h2>
+
+        <section className={style.wrapper}>
+          <section className={style.users}>{userItems}</section>
+
+          <section className={style.messages}>{messageItems}</section>
         </section>
-
-        <section className={style.messages}>
-          <article className={style.message}>Hi!</article>
-          <article className={style.message}>How are you?</article>
-          <article className={style.message}>Hello, i'm here</article>
-          <article className={style.message}>Hi!</article>
-          <article className={style.message}>How are you?</article>
-          <article className={style.message}>Hello, i'm here</article>
-        </section>
-      </section>
-    </div>
-  </section>
-);
+      </div>
+    </section>
+  );
+};
 
 export default Dialogs;
