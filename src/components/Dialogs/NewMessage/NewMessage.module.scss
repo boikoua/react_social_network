@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.text {
+  min-height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  resize: none;
+  outline: none;
+}
+
+.btn {
+  align-self: end;
+  padding: 5px 10px;
+  width: 100px;
+  cursor: pointer;
+}

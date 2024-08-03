@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Dialogs.module.scss';
 import DialogsUser from './DialogsUser/DialogsUser';
 import DialogsMessage from './DialogsMessage/DialogsMessage';
+import NewMessage from './NewMessage/NewMessage';
 
 const Dialogs = (props) => {
   // Отображаем юзеров с помощью МАР
@@ -28,7 +29,9 @@ const Dialogs = (props) => {
         <section className={style.wrapper}>
           <section className={style.users}>{userItems}</section>
 
-          <section className={style.messages}>{messageItems}</section>
+          <section className={style.messages}>
+            {messageItems} <NewMessage />
+          </section>
         </section>
       </div>
     </section>
