@@ -15,7 +15,7 @@ const App = (props) => {
       <div className={style.app}>
         <Header />
         <main className={style.main}>
-          <Navbar links={props.links} />
+          <Navbar links={props.links} users={props.users} />
 
           <Routes>
             <Route path="/profile" element={<Profile posts={props.posts} />} />

@@ -1,0 +1,26 @@
+.title {
+  font-size: 32px;
+  color: #4f4d4d;
+  border-bottom: 2px solid #4f4d4d;
+}
+
+.friends {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  padding-block: 20px;
+  list-style: none;
+}
+
+.friend > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: gray;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
