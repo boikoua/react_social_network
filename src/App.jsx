@@ -8,6 +8,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import { addMessage } from './data/state';
 
 const App = (props) => {
   return (
@@ -18,11 +19,18 @@ const App = (props) => {
           <Navbar links={props.links} users={props.users} />
 
           <Routes>
-            <Route path="/profile" element={<Profile posts={props.posts} />} />
+            <Route
+              path="/profile"
+              element={<Profile posts={props.posts} addPost={props.addPost} />}
+            />
             <Route
               path="/messages/*"
               element={
-                <Dialogs users={props.users} messages={props.messages} />
+                <Dialogs
+                  users={props.users}
+                  messages={props.messages}
+                  addMessage={addMessage}
+                />
               }
             />
             <Route path="/news" element={<News />} />

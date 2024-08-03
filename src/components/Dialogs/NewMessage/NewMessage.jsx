@@ -1,11 +1,17 @@
 import React from 'react';
 import style from './NewMessage.module.scss';
 
-const NewMessage = () => {
+const NewMessage = (props) => {
   const textareaElement = React.createRef();
 
   return (
-    <form className={style.form} onSubmit={(event) => event.preventDefault()}>
+    <form
+      className={style.form}
+      onSubmit={(event) => {
+        event.preventDefault();
+        props.addMessage(textareaElement.current.value);
+      }}
+    >
       <textarea
         className={style.text}
         placeholder="You can write your new message here..."

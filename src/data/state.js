@@ -1,3 +1,5 @@
+import { rerenderTree } from '../tools/rerenderTree';
+
 const state = {
   links: [
     {
@@ -75,6 +77,28 @@ const state = {
     { id: 9, name: 'Ivy', avatar: 'https://i.pravatar.cc/150?img=19' },
     { id: 10, name: 'Jack', avatar: 'https://i.pravatar.cc/150?img=60' },
   ],
+};
+
+export const addPost = (postText) => {
+  const newPost = {
+    id: state.posts.length + 1,
+    avatar: `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 50)}`,
+    message: postText,
+    likes: Math.floor(Math.random() * 1000),
+  };
+
+  state.posts.push(newPost);
+  rerenderTree(state);
+};
+
+export const addMessage = (messageText) => {
+  const newMessage = {
+    id: state.messages.length + 1,
+    text: messageText,
+  };
+
+  state.messages.push(newMessage);
+  rerenderTree(state);
 };
 
 export default state;

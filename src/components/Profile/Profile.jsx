@@ -8,7 +8,7 @@ const Profile = (props) => (
     <div className={style.bg}></div>
     <div className={style.content}>
       <ProfileInfo />
-      <MyPosts posts={props.posts} />
+      <MyPosts posts={props.posts} addPost={props.addPost} />
     </div>
   </section>
 );

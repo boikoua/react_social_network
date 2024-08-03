@@ -6,7 +6,7 @@ import NewPost from './NewPost/NewPost';
 const MyPosts = (props) => (
   <section className={style.container}>
     <h2 className={style.title}>My posts</h2>
-    <NewPost />
+    <NewPost addPost={props.addPost} />
     <section className={style.posts}>
       {props.posts.map((post) => (
         <Post
