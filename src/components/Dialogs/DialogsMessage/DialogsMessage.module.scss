@@ -1,3 +1,30 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+
+  &:nth-child(2n) {
+    flex-direction: row-reverse;
+    & > .avatar {
+      background-image: url('https://i.pravatar.cc/150?img=24');
+    }
+
+    & > .message {
+      border-radius: 20px 20px 0 20px;
+    }
+  }
+}
+
+.avatar {
+  align-self: flex-end;
+  width: 70px;
+  height: 70px;
+  background-image: url('https://i.pravatar.cc/150?img=5');
+  background-size: cover;
+  border-radius: 50%;
+}
+
 .message {
   padding: 20px;
   width: 300px;
@@ -7,8 +34,4 @@
   border: 2px solid rgb(161, 161, 161);
   box-shadow: 0px 0px 6px 0px rgba(122, 116, 116, 0.75);
   background-color: #f4f1f1;
-
-  &:nth-child(2n) {
-    border-radius: 20px 20px 0 20px;
-  }
 }
