@@ -1,4 +1,6 @@
-import { rerenderTree } from '../tools/rerenderTree';
+let rerenderTree = () => {
+  console.log('Render');
+};
 
 const state = {
   links: [
@@ -83,12 +85,12 @@ const state = {
 // Слежка за каждым символом ввода текста поста
 export const updateNewPostChange = (newText) => {
   state.newPostText = newText;
-  rerenderTree(state);
+  rerenderTree();
 };
 // Слежка за каждым символом ввода сообщения
 export const updateNewMessage = (newMessage) => {
   state.newMessageText = newMessage;
-  rerenderTree(state);
+  rerenderTree();
 };
 
 // Функция добавления нового поста в стейт
@@ -101,7 +103,7 @@ export const addPost = (postText) => {
   };
 
   state.posts.push(newPost);
-  rerenderTree(state);
+  rerenderTree();
 };
 
 // Функция добавления нового сообщения в стейт
@@ -112,7 +114,11 @@ export const addMessage = (messageText) => {
   };
 
   state.messages.push(newMessage);
-  rerenderTree(state);
+  rerenderTree();
+};
+// Функция наблюдатель паттерн observer
+export const subscribe = (observer) => {
+  rerenderTree = observer;
 };
 
 export default state;

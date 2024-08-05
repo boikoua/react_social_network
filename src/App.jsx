@@ -8,7 +8,6 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import { addMessage } from './data/state';
 
 const App = (props) => {
   return (
@@ -36,7 +35,7 @@ const App = (props) => {
                 <Dialogs
                   users={props.users}
                   messages={props.messages}
-                  addMessage={addMessage}
+                  addMessage={props.addMessage}
                   newMessageText={props.newMessageText}
                   updateNewMessage={props.updateNewMessage}
                 />
