@@ -15,17 +15,17 @@ const App = (props) => {
       <div className={style.app}>
         <Header />
         <main className={style.main}>
-          <Navbar links={props.links} users={props.users} />
+          <Navbar links={props.state.links} users={props.state.users} />
 
           <Routes>
             <Route
               path="/profile"
               element={
                 <Profile
-                  posts={props.posts}
+                  posts={props.state.posts}
                   updateNewPostChange={props.updateNewPostChange}
                   addPost={props.addPost}
-                  text={props.newPostText}
+                  text={props.state.newPostText}
                 />
               }
             />
@@ -33,10 +33,10 @@ const App = (props) => {
               path="/messages/*"
               element={
                 <Dialogs
-                  users={props.users}
-                  messages={props.messages}
+                  users={props.state.users}
+                  messages={props.state.messages}
                   addMessage={props.addMessage}
-                  newMessageText={props.newMessageText}
+                  newMessageText={props.state.newMessageText}
                   updateNewMessage={props.updateNewMessage}
                 />
               }

@@ -3,7 +3,6 @@ import style from './Dialogs.module.scss';
 import DialogsUser from './DialogsUser/DialogsUser';
 import DialogsMessage from './DialogsMessage/DialogsMessage';
 import NewMessage from './NewMessage/NewMessage';
-import { addMessage } from '../../data/state';
 
 const Dialogs = (props) => {
   // Отображаем юзеров с помощью МАР
@@ -33,7 +32,7 @@ const Dialogs = (props) => {
           <section className={style.messages}>
             {messageItems}{' '}
             <NewMessage
-              addMessage={addMessage}
+              addMessage={props.addMessage}
               newMessageText={props.newMessageText}
               updateNewMessage={props.updateNewMessage}
             />
