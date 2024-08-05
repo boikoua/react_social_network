@@ -8,7 +8,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import { addMessage } from './data/state';
+import { addMessage, updateNewPostChange } from './data/state';
 
 const App = (props) => {
   return (
@@ -21,7 +21,14 @@ const App = (props) => {
           <Routes>
             <Route
               path="/profile"
-              element={<Profile posts={props.posts} addPost={props.addPost} />}
+              element={
+                <Profile
+                  posts={props.posts}
+                  updateNewPostChange={updateNewPostChange}
+                  addPost={props.addPost}
+                  text={props.newPostText}
+                />
+              }
             />
             <Route
               path="/messages/*"

@@ -6,7 +6,11 @@ import NewPost from './NewPost/NewPost';
 const MyPosts = (props) => (
   <section className={style.container}>
     <h2 className={style.title}>My posts</h2>
-    <NewPost addPost={props.addPost} />
+    <NewPost
+      addPost={props.addPost}
+      text={props.text}
+      updateNewPostChange={props.updateNewPostChange}
+    />
     <section className={style.posts}>
       {props.posts.map((post) => (
         <Post

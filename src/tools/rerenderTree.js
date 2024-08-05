@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom/client';
 import { addMessage, addPost } from '../data/state';
 import App from '../App';
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 export const rerenderTree = (state) => {
-  const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
     <App
       links={state.links}
@@ -14,6 +15,8 @@ export const rerenderTree = (state) => {
       messages={state.messages}
       addPost={addPost}
       addMessage={addMessage}
+      newPostText={state.newPostText}
+      updateNewPostChange={state.updateNewPostChange}
     />
   );
 };

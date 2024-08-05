@@ -77,8 +77,20 @@ const state = {
     { id: 9, name: 'Ivy', avatar: 'https://i.pravatar.cc/150?img=19' },
     { id: 10, name: 'Jack', avatar: 'https://i.pravatar.cc/150?img=60' },
   ],
+  newPostText: 'Hello everybody',
 };
 
+export const updateNewPostChange = (newText) => {
+  state.newPostText = newText;
+  rerenderTree(state);
+};
+
+// export const updateNewPostChange = (newText) => {
+//   state.newPostText = newText;
+//   rerenderTree(state);
+// };
+
+// Функция добавления нового поста в стейт
 export const addPost = (postText) => {
   const newPost = {
     id: state.posts.length + 1,
@@ -91,6 +103,7 @@ export const addPost = (postText) => {
   rerenderTree(state);
 };
 
+// Функция добавления нового сообщения в стейт
 export const addMessage = (messageText) => {
   const newMessage = {
     id: state.messages.length + 1,

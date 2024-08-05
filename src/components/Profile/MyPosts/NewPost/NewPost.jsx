@@ -11,6 +11,8 @@ const NewPost = (props) => {
       <textarea
         className={style.text}
         placeholder="You can write here your post..."
+        value={props.text}
+        onChange={() => props.updateNewPostChange(newPostElement.current.value)}
         ref={newPostElement}
       ></textarea>
       <button
