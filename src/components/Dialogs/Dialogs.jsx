@@ -31,7 +31,12 @@ const Dialogs = (props) => {
           <section className={style.users}>{userItems}</section>
 
           <section className={style.messages}>
-            {messageItems} <NewMessage addMessage={addMessage} />
+            {messageItems}{' '}
+            <NewMessage
+              addMessage={addMessage}
+              newMessageText={props.newMessageText}
+              updateNewMessage={props.updateNewMessage}
+            />
           </section>
         </section>
       </div>

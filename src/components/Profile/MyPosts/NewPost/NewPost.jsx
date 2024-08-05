@@ -4,10 +4,13 @@ import style from './NewPost.module.scss';
 const NewPost = (props) => {
   const newPostElement = React.createRef();
 
-  console.log(props);
+  const handleSubmitFunc = (event) => {
+    event.preventDefault();
+    props.updateNewPostChange('');
+  };
 
   return (
-    <form className={style.form} onSubmit={(event) => event.preventDefault()}>
+    <form className={style.form} onSubmit={handleSubmitFunc}>
       <textarea
         className={style.text}
         placeholder="You can write here your post..."

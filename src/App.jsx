@@ -8,7 +8,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
-import { addMessage, updateNewPostChange } from './data/state';
+import { addMessage } from './data/state';
 
 const App = (props) => {
   return (
@@ -24,7 +24,7 @@ const App = (props) => {
               element={
                 <Profile
                   posts={props.posts}
-                  updateNewPostChange={updateNewPostChange}
+                  updateNewPostChange={props.updateNewPostChange}
                   addPost={props.addPost}
                   text={props.newPostText}
                 />
@@ -37,6 +37,8 @@ const App = (props) => {
                   users={props.users}
                   messages={props.messages}
                   addMessage={addMessage}
+                  newMessageText={props.newMessageText}
+                  updateNewMessage={props.updateNewMessage}
                 />
               }
             />

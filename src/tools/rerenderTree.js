@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// Функция обновления стейта
-import { addMessage, addPost } from '../data/state';
+// Функции обновления стейта
+import {
+  addMessage,
+  addPost,
+  updateNewMessage,
+  updateNewPostChange,
+} from '../data/state';
 import App from '../App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,7 +21,9 @@ export const rerenderTree = (state) => {
       addPost={addPost}
       addMessage={addMessage}
       newPostText={state.newPostText}
-      updateNewPostChange={state.updateNewPostChange}
+      updateNewPostChange={updateNewPostChange}
+      newMessageText={state.newMessageText}
+      updateNewMessage={updateNewMessage}
     />
   );
 };

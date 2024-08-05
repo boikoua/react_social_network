@@ -77,18 +77,19 @@ const state = {
     { id: 9, name: 'Ivy', avatar: 'https://i.pravatar.cc/150?img=19' },
     { id: 10, name: 'Jack', avatar: 'https://i.pravatar.cc/150?img=60' },
   ],
-  newPostText: 'Hello everybody',
+  newPostText: '',
+  newMessageText: '',
 };
-
+// Слежка за каждым символом ввода текста поста
 export const updateNewPostChange = (newText) => {
   state.newPostText = newText;
   rerenderTree(state);
 };
-
-// export const updateNewPostChange = (newText) => {
-//   state.newPostText = newText;
-//   rerenderTree(state);
-// };
+// Слежка за каждым символом ввода сообщения
+export const updateNewMessage = (newMessage) => {
+  state.newMessageText = newMessage;
+  rerenderTree(state);
+};
 
 // Функция добавления нового поста в стейт
 export const addPost = (postText) => {
