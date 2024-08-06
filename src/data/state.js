@@ -1,3 +1,9 @@
+// Список констант Action type
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 const store = {
   _state: {
     links: [
@@ -92,23 +98,8 @@ const store = {
     this._callSubscriber = observer;
   },
 
-  updateNewMessage(newMessage) {
-    this._state.newMessageText = newMessage;
-    this._callSubscriber();
-  },
-
-  addMessage() {
-    const newMessage = {
-      id: this._state.messages.length + 1,
-      text: this._state.newMessageText,
-    };
-
-    this._state.messages.push(newMessage);
-    this._callSubscriber();
-  },
-
   dispatch(action) {
-    if (action.type === 'ADD-POST') {
+    if (action.type === ADD_POST) {
       // Проверка на пустое поле
       if (this._state.newPostText.trim().length > 0) {
         const newPost = {
@@ -123,10 +114,10 @@ const store = {
         this._state.posts.push(newPost);
         this._callSubscriber();
       }
-    } else if (action.type === 'UPDATE-NEW-POST-CHANGE') {
+    } else if (action.type === UPDATE_NEW_POST_TEXT) {
       this._state.newPostText = action.newText;
       this._callSubscriber();
-    } else if (action.type === 'ADD-MESSAGE') {
+    } else if (action.type === ADD_MESSAGE) {
       // Проверка на пустое поле
       if (this._state.newMessageText.trim().length > 0) {
         const newMessage = {
@@ -137,11 +128,41 @@ const store = {
         this._state.messages.push(newMessage);
         this._callSubscriber();
       }
-    } else if (action.type === 'UPDATE-NEW-MESSAGE') {
+    } else if (action.type === UPDATE_NEW_MESSAGE) {
       this._state.newMessageText = action.newMessage;
       this._callSubscriber();
     }
   },
+};
+
+// Action creator для объекта добавления мообщения
+export const addMessageActionCreator = () => {
+  return {
+    type: ADD_MESSAGE,
+  };
+};
+
+// Action creator для объекта изменения текста сообщения
+export const updateNewMessageActionCreator = (text) => {
+  return {
+    type: UPDATE_NEW_MESSAGE,
+    newMessage: text,
+  };
+};
+
+// Action creator для объекта добавления поста
+export const addPostActionCreator = () => {
+  return {
+    type: ADD_POST,
+  };
+};
+
+// Action creator для объекта изменения текста поста
+export const updateNewPostTextActionCreator = (text) => {
+  return {
+    type: UPDATE_NEW_POST_TEXT,
+    newText: text,
+  };
 };
 
 export default store;

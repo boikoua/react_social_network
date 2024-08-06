@@ -1,5 +1,9 @@
 import React from 'react';
 import style from './NewMessage.module.scss';
+import {
+  addMessageActionCreator,
+  updateNewMessageActionCreator,
+} from '../../../data/state';
 
 const NewMessage = (props) => {
   const textareaElement = React.createRef();
@@ -7,15 +11,14 @@ const NewMessage = (props) => {
   // Функция обработчик обновления формы
   const handleSubmitFunc = (event) => {
     event.preventDefault();
-    props.dispatch({ type: 'ADD-MESSAGE' });
-    props.dispatch({ type: 'UPDATE-NEW-MESSAGE', newMessage: '' });
+    props.dispatch(addMessageActionCreator());
+    props.dispatch(updateNewMessageActionCreator(''));
   };
 
   const handleChangeFunc = () => {
-    props.dispatch({
-      type: 'UPDATE-NEW-MESSAGE',
-      newMessage: textareaElement.current.value,
-    });
+    props.dispatch(
+      updateNewMessageActionCreator(textareaElement.current.value)
+    );
   };
 
   return (

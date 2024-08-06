@@ -1,20 +1,23 @@
 import React from 'react';
 import style from './NewPost.module.scss';
+import {
+  addPostActionCreator,
+  updateNewPostTextActionCreator,
+} from '../../../../data/state';
 
 const NewPost = (props) => {
   const newPostElement = React.createRef();
 
   const handleSubmitFunc = (event) => {
     event.preventDefault();
-    props.dispatch({ type: 'ADD-POST' });
-    props.dispatch({ type: 'UPDATE-NEW-POST-CHANGE', newText: '' });
+    props.dispatch(addPostActionCreator());
+    props.dispatch(updateNewPostTextActionCreator(''));
   };
 
   const handleChangeFunc = () => {
-    props.dispatch({
-      type: 'UPDATE-NEW-POST-CHANGE',
-      newText: newPostElement.current.value,
-    });
+    props.dispatch(
+      updateNewPostTextActionCreator(newPostElement.current.value)
+    );
   };
 
   return (
