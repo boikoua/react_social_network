@@ -32,9 +32,8 @@ const Dialogs = (props) => {
           <section className={style.messages}>
             {messageItems}{' '}
             <NewMessage
-              addMessage={props.addMessage}
               newMessageText={props.newMessageText}
-              updateNewMessage={props.updateNewMessage}
+              dispatch={props.dispatch}
             />
           </section>
         </section>

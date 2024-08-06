@@ -7,8 +7,15 @@ const NewMessage = (props) => {
   // Функция обработчик обновления формы
   const handleSubmitFunc = (event) => {
     event.preventDefault();
-    props.addMessage(textareaElement.current.value);
-    props.updateNewMessage('');
+    props.dispatch({ type: 'ADD-MESSAGE' });
+    props.dispatch({ type: 'UPDATE-NEW-MESSAGE', newMessage: '' });
+  };
+
+  const handleChangeFunc = () => {
+    props.dispatch({
+      type: 'UPDATE-NEW-MESSAGE',
+      newMessage: textareaElement.current.value,
+    });
   };
 
   return (
@@ -16,11 +23,13 @@ const NewMessage = (props) => {
       <textarea
         className={style.text}
         value={props.newMessageText}
-        onChange={() => props.updateNewMessage(textareaElement.current.value)}
+        onChange={handleChangeFunc}
         placeholder="You can write your new message here..."
         ref={textareaElement}
       ></textarea>
-      <button className={style.btn}>Send</button>
+      <button type="submit" className={style.btn}>
+        Send
+      </button>
     </form>
   );
 };

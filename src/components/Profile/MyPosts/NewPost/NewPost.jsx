@@ -6,7 +6,15 @@ const NewPost = (props) => {
 
   const handleSubmitFunc = (event) => {
     event.preventDefault();
-    props.updateNewPostChange('');
+    props.dispatch({ type: 'ADD-POST' });
+    props.dispatch({ type: 'UPDATE-NEW-POST-CHANGE', newText: '' });
+  };
+
+  const handleChangeFunc = () => {
+    props.dispatch({
+      type: 'UPDATE-NEW-POST-CHANGE',
+      newText: newPostElement.current.value,
+    });
   };
 
   return (
@@ -15,16 +23,10 @@ const NewPost = (props) => {
         className={style.text}
         placeholder="You can write here your post..."
         value={props.text}
-        onChange={() => props.updateNewPostChange(newPostElement.current.value)}
+        onChange={handleChangeFunc}
         ref={newPostElement}
       ></textarea>
-      <button
-        type="submit"
-        className={style.btn}
-        onClick={() => {
-          props.addPost(newPostElement.current.value);
-        }}
-      >
+      <button type="submit" className={style.btn}>
         Add post
       </button>
     </form>

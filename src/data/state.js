@@ -80,33 +80,20 @@ const store = {
     newMessageText: '',
   },
 
-  getState() {
-    return this._state;
-  },
-
   _callSubscriber() {
     console.log('Render');
   },
 
-  updateNewPostChange(newText) {
-    this._state.newPostText = newText;
-    this._callSubscriber();
+  getState() {
+    return this._state;
+  },
+
+  subscribe(observer) {
+    this._callSubscriber = observer;
   },
 
   updateNewMessage(newMessage) {
     this._state.newMessageText = newMessage;
-    this._callSubscriber();
-  },
-
-  addPost() {
-    const newPost = {
-      id: this._state.posts.length + 1,
-      avatar: `https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 50)}`,
-      message: this._state.newPostText,
-      likes: Math.floor(Math.random() * 1000),
-    };
-
-    this._state.posts.push(newPost);
     this._callSubscriber();
   },
 
@@ -120,8 +107,40 @@ const store = {
     this._callSubscriber();
   },
 
-  subscribe(observer) {
-    this._callSubscriber = observer;
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      // Проверка на пустое поле
+      if (this._state.newPostText.trim().length > 0) {
+        const newPost = {
+          id: this._state.posts.length + 1,
+          avatar: `https://i.pravatar.cc/150?img=${Math.floor(
+            Math.random() * 50
+          )}`,
+          message: this._state.newPostText,
+          likes: Math.floor(Math.random() * 1000),
+        };
+
+        this._state.posts.push(newPost);
+        this._callSubscriber();
+      }
+    } else if (action.type === 'UPDATE-NEW-POST-CHANGE') {
+      this._state.newPostText = action.newText;
+      this._callSubscriber();
+    } else if (action.type === 'ADD-MESSAGE') {
+      // Проверка на пустое поле
+      if (this._state.newMessageText.trim().length > 0) {
+        const newMessage = {
+          id: this._state.messages.length + 1,
+          text: this._state.newMessageText,
+        };
+
+        this._state.messages.push(newMessage);
+        this._callSubscriber();
+      }
+    } else if (action.type === 'UPDATE-NEW-MESSAGE') {
+      this._state.newMessageText = action.newMessage;
+      this._callSubscriber();
+    }
   },
 };
 
