@@ -6,84 +6,102 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 const store = {
   _state: {
-    links: [
-      {
-        id: 1,
-        text: 'Profile',
-        icon: 'img/icons/icon-profile.png',
-      },
-      {
-        id: 2,
-        text: 'Messages',
-        icon: 'img/icons/icon-message.png',
-      },
-      {
-        id: 3,
-        text: 'News',
-        icon: 'img/icons/icon-news.png',
-      },
-      {
-        id: 4,
-        text: 'Music',
-        icon: 'img/icons/icon-music.png',
-      },
-      {
-        id: 5,
-        text: 'Settings',
-        icon: 'img/icons/icon-settings.png',
-      },
-    ],
-    messages: [
-      { id: 1, text: 'Hello there!' },
-      { id: 2, text: 'Good morning!' },
-      { id: 3, text: "How's it going?" },
-      { id: 4, text: 'Happy to see you!' },
-      { id: 5, text: "What's up?" },
-      { id: 6, text: 'Nice to meet you!' },
-      { id: 7, text: 'Goodbye!' },
-      { id: 8, text: 'Have a great day!' },
-      { id: 9, text: 'See you soon!' },
-      { id: 10, text: 'Take care!' },
-      { id: 11, text: "What's new?" },
-      { id: 12, text: 'Long time no see!' },
-      { id: 13, text: "How's the weather?" },
-      { id: 14, text: 'I like your profile picture!' },
-      { id: 15, text: 'What are your plans?' },
-    ],
-    posts: [
-      {
-        id: 1,
-        avatar: 'https://i.pravatar.cc/150?img=1',
-        message: 'This is a test message from user 1.',
-        likes: 120040,
-      },
-      {
-        id: 2,
-        avatar: 'https://i.pravatar.cc/150?img=10',
-        message: 'Here is another message from user 2.',
-        likes: 99,
-      },
-      {
-        id: 3,
-        avatar: 'https://i.pravatar.cc/150?img=33',
-        message: 'This is yet another message from user 3.',
-        likes: 100,
-      },
-    ],
-    users: [
-      { id: 1, name: 'Alice', avatar: 'https://i.pravatar.cc/150?img=41' },
-      { id: 2, name: 'Bob', avatar: 'https://i.pravatar.cc/150?img=52' },
-      { id: 3, name: 'Charlie', avatar: 'https://i.pravatar.cc/150?img=53' },
-      { id: 4, name: 'Diana', avatar: 'https://i.pravatar.cc/150?img=34' },
-      { id: 5, name: 'Eve', avatar: 'https://i.pravatar.cc/150?img=25' },
-      { id: 6, name: 'Frank', avatar: 'https://i.pravatar.cc/150?img=56' },
-      { id: 7, name: 'Grace', avatar: 'https://i.pravatar.cc/150?img=37' },
-      { id: 8, name: 'Hank', avatar: 'https://i.pravatar.cc/150?img=58' },
-      { id: 9, name: 'Ivy', avatar: 'https://i.pravatar.cc/150?img=19' },
-      { id: 10, name: 'Jack', avatar: 'https://i.pravatar.cc/150?img=60' },
-    ],
-    newPostText: '',
-    newMessageText: '',
+    sidebar: {
+      links: [
+        {
+          id: 1,
+          text: 'Profile',
+          icon: 'img/icons/icon-profile.png',
+        },
+        {
+          id: 2,
+          text: 'Messages',
+          icon: 'img/icons/icon-message.png',
+        },
+        {
+          id: 3,
+          text: 'News',
+          icon: 'img/icons/icon-news.png',
+        },
+        {
+          id: 4,
+          text: 'Music',
+          icon: 'img/icons/icon-music.png',
+        },
+        {
+          id: 5,
+          text: 'Settings',
+          icon: 'img/icons/icon-settings.png',
+        },
+      ],
+      users: [
+        { id: 1, name: 'Alice', avatar: 'https://i.pravatar.cc/150?img=41' },
+        { id: 2, name: 'Bob', avatar: 'https://i.pravatar.cc/150?img=52' },
+        { id: 3, name: 'Charlie', avatar: 'https://i.pravatar.cc/150?img=53' },
+        { id: 4, name: 'Diana', avatar: 'https://i.pravatar.cc/150?img=34' },
+        { id: 5, name: 'Eve', avatar: 'https://i.pravatar.cc/150?img=25' },
+        { id: 6, name: 'Frank', avatar: 'https://i.pravatar.cc/150?img=56' },
+        { id: 7, name: 'Grace', avatar: 'https://i.pravatar.cc/150?img=37' },
+        { id: 8, name: 'Hank', avatar: 'https://i.pravatar.cc/150?img=58' },
+        { id: 9, name: 'Ivy', avatar: 'https://i.pravatar.cc/150?img=19' },
+        { id: 10, name: 'Jack', avatar: 'https://i.pravatar.cc/150?img=60' },
+      ],
+    },
+    dialogsPage: {
+      messages: [
+        { id: 1, text: 'Hello there!' },
+        { id: 2, text: 'Good morning!' },
+        { id: 3, text: "How's it going?" },
+        { id: 4, text: 'Happy to see you!' },
+        { id: 5, text: "What's up?" },
+        { id: 6, text: 'Nice to meet you!' },
+        { id: 7, text: 'Goodbye!' },
+        { id: 8, text: 'Have a great day!' },
+        { id: 9, text: 'See you soon!' },
+        { id: 10, text: 'Take care!' },
+        { id: 11, text: "What's new?" },
+        { id: 12, text: 'Long time no see!' },
+        { id: 13, text: "How's the weather?" },
+        { id: 14, text: 'I like your profile picture!' },
+        { id: 15, text: 'What are your plans?' },
+      ],
+      users: [
+        { id: 1, name: 'Alice', avatar: 'https://i.pravatar.cc/150?img=41' },
+        { id: 2, name: 'Bob', avatar: 'https://i.pravatar.cc/150?img=52' },
+        { id: 3, name: 'Charlie', avatar: 'https://i.pravatar.cc/150?img=53' },
+        { id: 4, name: 'Diana', avatar: 'https://i.pravatar.cc/150?img=34' },
+        { id: 5, name: 'Eve', avatar: 'https://i.pravatar.cc/150?img=25' },
+        { id: 6, name: 'Frank', avatar: 'https://i.pravatar.cc/150?img=56' },
+        { id: 7, name: 'Grace', avatar: 'https://i.pravatar.cc/150?img=37' },
+        { id: 8, name: 'Hank', avatar: 'https://i.pravatar.cc/150?img=58' },
+        { id: 9, name: 'Ivy', avatar: 'https://i.pravatar.cc/150?img=19' },
+        { id: 10, name: 'Jack', avatar: 'https://i.pravatar.cc/150?img=60' },
+      ],
+      newMessageText: '',
+    },
+    profilePage: {
+      posts: [
+        {
+          id: 1,
+          avatar: 'https://i.pravatar.cc/150?img=1',
+          message: 'This is a test message from user 1.',
+          likes: 120040,
+        },
+        {
+          id: 2,
+          avatar: 'https://i.pravatar.cc/150?img=10',
+          message: 'Here is another message from user 2.',
+          likes: 99,
+        },
+        {
+          id: 3,
+          avatar: 'https://i.pravatar.cc/150?img=33',
+          message: 'This is yet another message from user 3.',
+          likes: 100,
+        },
+      ],
+      newPostText: '',
+    },
   },
 
   _callSubscriber() {
@@ -101,35 +119,35 @@ const store = {
   dispatch(action) {
     if (action.type === ADD_POST) {
       // Проверка на пустое поле
-      if (this._state.newPostText.trim().length > 0) {
+      if (this._state.profilePage.newPostText.trim().length > 0) {
         const newPost = {
-          id: this._state.posts.length + 1,
+          id: this._state.profilePage.posts.length + 1,
           avatar: `https://i.pravatar.cc/150?img=${Math.floor(
             Math.random() * 50
           )}`,
-          message: this._state.newPostText,
+          message: this._state.profilePage.newPostText,
           likes: Math.floor(Math.random() * 1000),
         };
 
-        this._state.posts.push(newPost);
+        this._state.profilePage.posts.push(newPost);
         this._callSubscriber();
       }
     } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.newPostText = action.newText;
+      this._state.profilePage.newPostText = action.newText;
       this._callSubscriber();
     } else if (action.type === ADD_MESSAGE) {
       // Проверка на пустое поле
-      if (this._state.newMessageText.trim().length > 0) {
+      if (this._state.dialogsPage.newMessageText.trim().length > 0) {
         const newMessage = {
-          id: this._state.messages.length + 1,
-          text: this._state.newMessageText,
+          id: this._state.dialogsPage.messages.length + 1,
+          text: this._state.dialogsPage.newMessageText,
         };
 
-        this._state.messages.push(newMessage);
+        this._state.dialogsPage.messages.push(newMessage);
         this._callSubscriber();
       }
     } else if (action.type === UPDATE_NEW_MESSAGE) {
-      this._state.newMessageText = action.newMessage;
+      this._state.dialogsPage.newMessageText = action.newMessage;
       this._callSubscriber();
     }
   },
