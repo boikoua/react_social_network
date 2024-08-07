@@ -13,6 +13,6 @@ const rerenderTree = (state) => {
   );
 };
 
-store.subscribe(rerenderTree);
+store.subscribe(() => rerenderTree(store.getState()));
 
 rerenderTree(store.getState());

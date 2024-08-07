@@ -3,7 +3,7 @@ import style from './NewMessage.module.scss';
 import {
   addMessageActionCreator,
   updateNewMessageActionCreator,
-} from '../../../data/state';
+} from '../../../data/dialogsReducer';
 
 const NewMessage = (props) => {
   const textareaElement = React.createRef();

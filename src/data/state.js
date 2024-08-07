@@ -1,8 +1,6 @@
-// Список констант Action type
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+import dialogsReducer from './dialogsReducer';
+import profileReducer from './profileReducer';
+import sidebarReducer from './sidebarReducer';
 
 const store = {
   _state: {
@@ -117,70 +115,12 @@ const store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      // Проверка на пустое поле
-      if (this._state.profilePage.newPostText.trim().length > 0) {
-        const newPost = {
-          id: this._state.profilePage.posts.length + 1,
-          avatar: `https://i.pravatar.cc/150?img=${Math.floor(
-            Math.random() * 50
-          )}`,
-          message: this._state.profilePage.newPostText,
-          likes: Math.floor(Math.random() * 1000),
-        };
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
 
-        this._state.profilePage.posts.push(newPost);
-        this._callSubscriber();
-      }
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber();
-    } else if (action.type === ADD_MESSAGE) {
-      // Проверка на пустое поле
-      if (this._state.dialogsPage.newMessageText.trim().length > 0) {
-        const newMessage = {
-          id: this._state.dialogsPage.messages.length + 1,
-          text: this._state.dialogsPage.newMessageText,
-        };
-
-        this._state.dialogsPage.messages.push(newMessage);
-        this._callSubscriber();
-      }
-    } else if (action.type === UPDATE_NEW_MESSAGE) {
-      this._state.dialogsPage.newMessageText = action.newMessage;
-      this._callSubscriber();
-    }
+    this._callSubscriber();
   },
-};
-
-// Action creator для объекта добавления мообщения
-export const addMessageActionCreator = () => {
-  return {
-    type: ADD_MESSAGE,
-  };
-};
-
-// Action creator для объекта изменения текста сообщения
-export const updateNewMessageActionCreator = (text) => {
-  return {
-    type: UPDATE_NEW_MESSAGE,
-    newMessage: text,
-  };
-};
-
-// Action creator для объекта добавления поста
-export const addPostActionCreator = () => {
-  return {
-    type: ADD_POST,
-  };
-};
-
-// Action creator для объекта изменения текста поста
-export const updateNewPostTextActionCreator = (text) => {
-  return {
-    type: UPDATE_NEW_POST_TEXT,
-    newText: text,
-  };
 };
 
 export default store;

@@ -3,7 +3,7 @@ import style from './NewPost.module.scss';
 import {
   addPostActionCreator,
   updateNewPostTextActionCreator,
-} from '../../../../data/state';
+} from '../../../../data/profileReducer';
 
 const NewPost = (props) => {
   const newPostElement = React.createRef();

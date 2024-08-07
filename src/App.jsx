@@ -19,7 +19,6 @@ const App = (props) => {
             links={props.state.sidebar.links}
             users={props.state.sidebar.users}
           />
-
           <Routes>
             <Route
               path="/profile"
