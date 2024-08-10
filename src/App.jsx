@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import style from './App.module.scss';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -11,24 +11,19 @@ import Settings from './components/Settings/Settings';
 
 const App = (props) => {
   return (
-    <BrowserRouter>
-      <div className={style.app}>
-        <Header />
-        <main className={style.main}>
-          <Navbar store={props.store} />
-          <Routes>
-            <Route path="/profile" element={<Profile store={props.store} />} />
-            <Route
-              path="/messages/*"
-              element={<Dialogs store={props.store} />}
-            />
-            <Route path="/news" element={<News />} />
-            <Route path="/music" element={<Music />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+    <div className={style.app}>
+      <Header />
+      <main className={style.main}>
+        <Navbar store={props.store} />
+        <Routes>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/messages/*" element={<Dialogs />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </main>
+    </div>
   );
 };
 

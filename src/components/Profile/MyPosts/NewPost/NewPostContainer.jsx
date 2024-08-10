@@ -4,22 +4,31 @@ import {
   updateNewPostTextActionCreator,
 } from '../../../../data/profileReducer';
 import NewPost from './NewPost';
+import StoreContext from '../../../../storeContext';
 
 const NewPostContainer = (props) => {
-  const newPostText = props.store.getState().profilePage.newPostText;
-
-  const addPost = () => {
-    props.store.dispatch(addPostActionCreator());
-    props.store.dispatch(updateNewPostTextActionCreator(''));
-  };
-
-  const onPostChange = (text) => {
-    const action = updateNewPostTextActionCreator(text);
-    props.store.dispatch(action);
-  };
-
   return (
-    <NewPost onPostChange={onPostChange} addPost={addPost} text={newPostText} />
+    <StoreContext.Consumer>
+      {(store) => {
+        const addPost = () => {
+          store.dispatch(addPostActionCreator());
+          store.dispatch(updateNewPostTextActionCreator(''));
+        };
+
+        const onPostChange = (text) => {
+          const action = updateNewPostTextActionCreator(text);
+          store.dispatch(action);
+        };
+
+        return (
+          <NewPost
+            onPostChange={onPostChange}
+            addPost={addPost}
+            text={store.getState().profilePage.newPostText}
+          />
+        );
+      }}
+    </StoreContext.Consumer>
   );
 };
 

@@ -4,12 +4,18 @@ import './index.css';
 // Функции обновления стейта
 import store from './data/reduxStore';
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import StoreContext from './storeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const rerenderTree = (state) => {
   root.render(
-    <App state={state} store={store} dispatch={store.dispatch.bind(store)} />
+    <BrowserRouter>
+      <StoreContext.Provider value={store}>
+        <App />
+      </StoreContext.Provider>
+    </BrowserRouter>
   );
 };
 

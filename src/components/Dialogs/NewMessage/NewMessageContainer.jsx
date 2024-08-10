@@ -4,26 +4,32 @@ import {
   updateNewMessageActionCreator,
 } from '../../../data/dialogsReducer';
 import NewMessage from './NewMessage';
+import StoreContext from '../../../storeContext';
 
 const NewMessageContainer = (props) => {
-  const newMessageText = props.store.getState().dialogsPage.newMessageText;
-
-  const onAddMessage = () => {
-    props.store.dispatch(addMessageActionCreator());
-    props.store.dispatch(updateNewMessageActionCreator(''));
-  };
-
-  const onChangeMessage = (text) => {
-    const action = updateNewMessageActionCreator(text);
-    props.store.dispatch(action);
-  };
-
   return (
-    <NewMessage
-      onChangeMessage={onChangeMessage}
-      onAddMessage={onAddMessage}
-      newMessageText={newMessageText}
-    />
+    <StoreContext.Consumer>
+      {(store) => {
+        const newMessageText = store.getState().dialogsPage.newMessageText;
+
+        const onAddMessage = () => {
+          store.dispatch(addMessageActionCreator());
+          store.dispatch(updateNewMessageActionCreator(''));
+        };
+
+        const onChangeMessage = (text) => {
+          const action = updateNewMessageActionCreator(text);
+          store.dispatch(action);
+        };
+        return (
+          <NewMessage
+            onChangeMessage={onChangeMessage}
+            onAddMessage={onAddMessage}
+            newMessageText={newMessageText}
+          />
+        );
+      }}
+    </StoreContext.Consumer>
   );
 };
 
