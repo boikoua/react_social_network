@@ -1,24 +1,17 @@
 import React from 'react';
 import style from './NewMessage.module.scss';
-import {
-  addMessageActionCreator,
-  updateNewMessageActionCreator,
-} from '../../../data/dialogsReducer';
 
 const NewMessage = (props) => {
   const textareaElement = React.createRef();
 
-  // Функция обработчик обновления формы
   const handleSubmitFunc = (event) => {
     event.preventDefault();
-    props.dispatch(addMessageActionCreator());
-    props.dispatch(updateNewMessageActionCreator(''));
+    props.onAddMessage();
   };
 
   const handleChangeFunc = () => {
-    props.dispatch(
-      updateNewMessageActionCreator(textareaElement.current.value)
-    );
+    const text = textareaElement.current.value;
+    props.onChangeMessage(text);
   };
 
   return (

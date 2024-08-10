@@ -1,23 +1,17 @@
 import React from 'react';
 import style from './NewPost.module.scss';
-import {
-  addPostActionCreator,
-  updateNewPostTextActionCreator,
-} from '../../../../data/profileReducer';
 
 const NewPost = (props) => {
   const newPostElement = React.createRef();
 
   const handleSubmitFunc = (event) => {
     event.preventDefault();
-    props.dispatch(addPostActionCreator());
-    props.dispatch(updateNewPostTextActionCreator(''));
+    props.addPost();
   };
 
   const handleChangeFunc = () => {
-    props.dispatch(
-      updateNewPostTextActionCreator(newPostElement.current.value)
-    );
+    const text = newPostElement.current.value;
+    props.onPostChange(text);
   };
 
   return (

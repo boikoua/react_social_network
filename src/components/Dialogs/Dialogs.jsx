@@ -2,11 +2,13 @@ import React from 'react';
 import style from './Dialogs.module.scss';
 import DialogsUser from './DialogsUser/DialogsUser';
 import DialogsMessage from './DialogsMessage/DialogsMessage';
-import NewMessage from './NewMessage/NewMessage';
+import NewMessageContainer from './NewMessage/NewMessageContainer';
 
 const Dialogs = (props) => {
-  // Отображаем юзеров с помощью МАР
-  const userItems = props.users.map((user) => (
+  const usersFromStore = props.store.getState().dialogsPage.users;
+  const messagesFromStore = props.store.getState().dialogsPage.messages;
+
+  const userItems = usersFromStore.map((user) => (
     <DialogsUser
       avatar={user.avatar}
       id={user.id}
@@ -15,8 +17,7 @@ const Dialogs = (props) => {
     />
   ));
 
-  // Отображаем сообщения с помощью МАР
-  const messageItems = props.messages.map((message) => (
+  const messageItems = messagesFromStore.map((message) => (
     <DialogsMessage message={message.text} key={message.id} />
   ));
 
@@ -30,11 +31,7 @@ const Dialogs = (props) => {
           <section className={style.users}>{userItems}</section>
 
           <section className={style.messages}>
-            {messageItems}{' '}
-            <NewMessage
-              newMessageText={props.newMessageText}
-              dispatch={props.dispatch}
-            />
+            {messageItems} <NewMessageContainer store={props.store} />
           </section>
         </section>
       </div>

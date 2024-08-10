@@ -8,11 +8,7 @@ const Profile = (props) => (
     <div className={style.bg}></div>
     <div className={style.content}>
       <ProfileInfo />
-      <MyPosts
-        posts={props.posts}
-        text={props.text}
-        dispatch={props.dispatch}
-      />
+      <MyPosts store={props.store} />
     </div>
   </section>
 );

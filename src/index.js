@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const rerenderTree = (state) => {
   root.render(
-    <App state={store.getState()} dispatch={store.dispatch.bind(store)} />
+    <App state={state} store={store} dispatch={store.dispatch.bind(store)} />
   );
 };
 

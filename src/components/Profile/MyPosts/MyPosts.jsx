@@ -1,11 +1,12 @@
 import React from 'react';
 import style from './MyPosts.module.scss';
 import Post from './Post/Post';
-import NewPost from './NewPost/NewPost';
+import NewPostContainer from './NewPost/NewPostContainer';
 
 const MyPosts = (props) => {
-  // Вывод списка постов
-  const postsList = props.posts.map((post) => (
+  const postsFromServer = props.store.getState().profilePage.posts;
+
+  const postsList = postsFromServer.map((post) => (
     <Post
       avatar={post.avatar}
       message={post.message}
@@ -17,7 +18,7 @@ const MyPosts = (props) => {
   return (
     <section className={style.container}>
       <h2 className={style.title}>My posts</h2>
-      <NewPost text={props.text} dispatch={props.dispatch} />
+      <NewPostContainer store={props.store} />
       <section className={style.posts}>{postsList}</section>
     </section>
   );
