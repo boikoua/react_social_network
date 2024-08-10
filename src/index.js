@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // Функции обновления стейта
-import store from './data/store';
+import store from './data/reduxStore';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
